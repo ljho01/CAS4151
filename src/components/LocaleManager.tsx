@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { messages, defaultLocale } from "@/i18n";
 
@@ -8,7 +8,7 @@ interface LocaleManagerProps {
   onLocaleChange: (locale: string) => void;
 }
 
-export function LocaleManager({ onLocaleChange }: LocaleManagerProps) {
+function LocaleManagerContent({ onLocaleChange }: LocaleManagerProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -43,4 +43,12 @@ export function LocaleManager({ onLocaleChange }: LocaleManagerProps) {
   }, [searchParams, onLocaleChange, router]);
 
   return null;
+}
+
+export function LocaleManager(props: LocaleManagerProps) {
+  return (
+    <Suspense fallback={null}>
+      <LocaleManagerContent {...props} />
+    </Suspense>
+  );
 } 
