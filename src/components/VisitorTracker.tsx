@@ -55,7 +55,7 @@ export function VisitorTracker() {
       console.log(visitorData);
       try {
         await axios.get(
-          `/api/?action=insert&table=visitors&data=${visitorData}`
+          `https://script.google.com/macros/s/AKfycbzcSrWWxktZrwnSEBP0RJx5Et6dlEHS71rWU7Fr6RqjyYbQZbASz7KUb5GYHH7S4CyEZw/exec/?action=insert&table=visitors&data=${visitorData}`
         );
       } catch (error) {
         console.error('Error tracking visitor:', error);
