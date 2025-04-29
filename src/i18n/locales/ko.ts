@@ -43,15 +43,15 @@ export const ko = {
     },
   },
   contact: {
-    title: '서비스 알림 받기',
-    description: '이메일을 남겨주시면 서비스가 런칭되었을 때 알림을 드리겠습니다. (8월 중 런칭 예정)',
-    emailPlaceholder: '알림을 받으실 이메일',
-    advicePlaceholder: '서비스에 대한 조언을 남겨주세요',
+    title: '클로즈드 베타 신청하기',
+    description: 'ARCHI의 클로즈드 베타에 참여하고, 새로운 문서 작성 경험을 가장 먼저 만나보세요.',
+    emailPlaceholder: '이메일을 입력해주세요',
+    advicePlaceholder: 'ARCHI에 대한 기대감이나 의견을 자유롭게 남겨주세요 (선택)',
     submit: '지금 제출!',
   },
   popup: {
     title: '감사합니다.',
-    message: '이제는 우리는 같은 배를 탔습니다.',
+    message: '베타 신청이 완료되었습니다.',
     close: '닫기',
   },
   footer: {
