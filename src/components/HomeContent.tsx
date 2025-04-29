@@ -142,23 +142,41 @@ export function HomeContent({ locale }: HomeContentProps) {
       </section>
 
       {/* 사용 사례 섹션 */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">{t('features.title')}</h2>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8">
-            <div className="flex flex-col items-center gap-4">
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.brainstorming')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.marketing')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.essay')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.newsletter')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.learning')}</h3>
-            </div>
-            <div className="flex flex-col items-center gap-4">
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.knowledge')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.resume')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.presentation')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.syllabus')}</h3>
-              <h3 className="text-2xl font-bold text-gray-900">{t('features.goals')}</h3>
+          <div className="overflow-hidden w-full">
+            <div className="flex animate-infinite-scroll whitespace-nowrap">
+              {/* feature 아이템을 한 줄로 반복 */}
+              {[
+                t('features.brainstorming'),
+                t('features.knowledge'),
+                t('features.marketing'),
+                t('features.resume'),
+                t('features.essay'),
+                t('features.presentation'),
+                t('features.newsletter'),
+                t('features.syllabus'),
+                t('features.learning'),
+                t('features.goals'),
+              ].map((item, i) => (
+                <div key={i} className="inline-block px-8 text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">{item}</div>
+              ))}
+              {/* 반복 */}
+              {[
+                t('features.brainstorming'),
+                t('features.knowledge'),
+                t('features.marketing'),
+                t('features.resume'),
+                t('features.essay'),
+                t('features.presentation'),
+                t('features.newsletter'),
+                t('features.syllabus'),
+                t('features.learning'),
+                t('features.goals'),
+              ].map((item, i) => (
+                <div key={i + 10} className="inline-block px-8 text-xl md:text-2xl font-bold text-gray-900 whitespace-nowrap">{item}</div>
+              ))}
             </div>
           </div>
         </div>
@@ -204,7 +222,7 @@ export function HomeContent({ locale }: HomeContentProps) {
       </section>
 
       {/* 문의 폼 섹션 */}
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="py-20 bg-white">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('contact.title')}</h2>
