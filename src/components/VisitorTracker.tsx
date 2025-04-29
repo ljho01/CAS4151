@@ -43,7 +43,7 @@ export function VisitorTracker() {
     const trackVisitor = async () => {
       if (ip === "unknown") return;
 
-      const visitorData = JSON.stringify({
+      const visitorData = encodeURIComponent(JSON.stringify({
         id: getVisitorId(),
         landingUrl: window.location.href,
         ip: ip,
@@ -51,11 +51,11 @@ export function VisitorTracker() {
         time_stamp: new Date().toISOString(),
         utm: new URLSearchParams(window.location.search).get("utm"),
         device: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? 'mobile' : 'desktop'
-      });
-
+      }));
+      console.log(visitorData);
       try {
         await axios.get(
-          `https://script.google.com/macros/s/AKfycbzcSrWWxktZrwnSEBP0RJx5Et6dlEHS71rWU7Fr6RqjyYbQZbASz7KUb5GYHH7S4CyEZw/exec?action=insert&table=visitors&data=${visitorData}`
+          `/api/?action=insert&table=visitors&data=${visitorData}`
         );
       } catch (error) {
         console.error('Error tracking visitor:', error);

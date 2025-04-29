@@ -58,7 +58,7 @@ export function HomeContent({ locale }: HomeContentProps) {
       });
 
       const response = await axios.get<FormResponse>(
-        `https://script.google.com/macros/s/AKfycbzcSrWWxktZrwnSEBP0RJx5Et6dlEHS71rWU7Fr6RqjyYbQZbASz7KUb5GYHH7S4CyEZw/exec?action=insert&table=tab_final&data=${finalData}`
+        `/api/?action=insert&table=visitors&data=${finalData}`
       );
 
       const data = response.data ? JSON.parse((response.data as any).slice(10, -1)) : {success: false, data: null};
