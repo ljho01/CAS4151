@@ -58,14 +58,15 @@ export function HomeContent({ locale }: HomeContentProps) {
       });
 
       const response = await axios.get<FormResponse>(
-        `https://script.google.com/macros/s/AKfycbzcSrWWxktZrwnSEBP0RJx5Et6dlEHS71rWU7Fr6RqjyYbQZbASz7KUb5GYHH7S4CyEZw/exec?action=insert&table=visitors&data=${finalData}`
+        `https://script.google.com/macros/s/AKfycbzcSrWWxktZrwnSEBP0RJx5Et6dlEHS71rWU7Fr6RqjyYbQZbASz7KUb5GYHH7S4CyEZw/exec?action=insert&table=tab_final&data=${finalData}`
       );
-
+      console.log(response.data);
       const data = response.data ? JSON.parse((response.data as any).slice(10, -1)) : {success: false, data: null};
       if (data.success) {
         setShowPopup(true);
         form.reset();
       } else {
+
         console.error('서버 응답 실패:', data.data);
         alert('폼 제출에 실패했습니다. 다시 시도해주세요.');
       }
