@@ -6,7 +6,7 @@ export const languages = {
   ko: '한국어',
 };
 
-export const defaultLocale = 'ko';
+export const defaultLocale = 'en';
 
 export const messages = {
   en,
